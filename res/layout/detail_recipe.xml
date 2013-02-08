@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000"
+    >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="23dp"
+    android:background="#000"
+    android:id="@+id/add_ingredient"
+    >
+
+    <TextView 
+        android:id="@+id/TitleDRP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="28dp"
+        android:textColor="#FFF"
+        android:text="Pizza"  />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="0dp"
+	    android:background="#000"
+	    android:id="@+id/detailsRP"
+	    >
+
+        <ImageView
+            android:id="@+id/imageRP"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:src="@drawable/recipedemo2" />
+        
+        <TextView 
+	        android:id="@+id/subTitIng"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="left"
+	        android:layout_gravity="left"
+	        android:textSize="20dp"
+	        android:textColor="#FFF"
+	        android:text="Ingredients:"  />
+	    
+        <TextView 
+	        android:id="@+id/ingredientsInRecipe"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="left"
+	        android:layout_gravity="left"
+	        android:paddingTop="5dp"
+	        android:textSize="16dp"
+	        android:textColor="#00EEEE"
+	        android:text="@string/ing_in_rp"  />
+        
+      <Button
+	        android:id="@+id/btAdd"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:textSize="19dp"
+	        android:gravity="center"
+	        android:layout_gravity="center"
+	        android:layout_margin="16dp"
+	        android:textColor="#FFF"
+	        android:background="@drawable/samplebutton"
+	        android:text="Select Recipe" 
+	        android:paddingTop="8dp"
+        />
+                
+	</LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>

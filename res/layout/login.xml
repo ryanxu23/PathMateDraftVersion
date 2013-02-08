@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="23dp"
+    android:background="#000"
+    android:id="@+id/login"
+    >
+
+    <TextView 
+        android:id="@+id/TitleLG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="36dp"
+        android:textColor="#FFF"
+        android:text="Login"  />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="horizontal"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="23dp"
+	    android:background="#000"
+	    android:id="@+id/usrname"
+	    >
+    
+        <TextView
+	        android:id="@+id/tv_usrname"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="User Name" 
+	        android:textColor="#00EEEE"
+	        android:textSize="20dp"/>
+
+        <EditText
+        	android:id="@+id/input_usrname"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:textColor="#FFF"
+        	android:textSize="17dp"
+        	android:maxLines="1"
+        	>
+        	<requestFocus />
+		</EditText>
+	</LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:orientation="horizontal"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="23dp"
+	    android:background="#000"
+	    android:id="@+id/pwd"
+	    >
+    
+        <TextView
+	        android:id="@+id/tv_pwd"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Password" 
+	        android:textColor="#00EEEE"
+	        android:textSize="20dp"/>
+
+        <EditText
+        	android:id="@+id/input_pwd"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:textColor="#FFF"
+        	android:textSize="17dp"
+        	android:inputType="textPassword"
+        	android:maxLines="1"
+        	>
+
+		</EditText>
+	</LinearLayout>
+	
+    <Button
+        android:id="@+id/btSaveLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="19dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:textColor="#FFF"
+        android:background="@drawable/samplebutton"
+        android:text="Save" 
+        />
+
+</LinearLayout>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#000"
+    android:id="@+id/choose_recipes"
+    >
+
+    <TextView 
+        android:id="@+id/TitleCR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="36dp"
+        android:textColor="#FFF"
+        android:text="Choose Recipes"  />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"   
+   		android:orientation="vertical" 
+   		android:paddingTop="5dp"
+   		android:paddingBottom="5dp">
+   			
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="10dp"
+   			android:paddingBottom="10dp">
+   
+            <CheckBox
+		        android:id="@+id/checkBox1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:checked="true" />
+                
+	        <TextView
+	            android:id="@+id/nameRecipe1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="36dp"
+	            android:layout_centerVertical="true"
+	          	android:textSize="19dp"
+	            android:textColor="#FFF"
+	            android:text="Mexican Wraps" />
+	    </RelativeLayout>        
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="0dp"
+   			android:paddingBottom="0dp">
+	        <TextView
+	        	android:id="@+id/prTime1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_marginTop="46dp"
+		        android:layout_marginLeft="36dp"
+		        android:textSize="15dp"
+		        android:textColor="#FFF"
+	            android:text=" - Preparing Time: 25 Min." />
+        	        
+	        <Button
+	            android:id="@+id/btnChooseRP1"
+	            android:layout_width="56dp"
+	            android:layout_height="30dp"
+	            android:layout_gravity="center"
+	            android:background="@drawable/samplebutton"
+	            android:gravity="center"
+	            android:text="Details"
+	            android:textSize="12dp"
+	            android:textColor="#FFF" 
+	    		android:layout_alignParentRight="true" 
+	    		android:layout_marginTop="40dp"
+	    		style="?android:attr/buttonStyleSmall" />
+	   </RelativeLayout>
+	</RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"   
+   		android:orientation="vertical" 
+   		android:paddingTop="5dp"
+   		android:paddingBottom="5dp">
+   			
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="10dp"
+   			android:paddingBottom="10dp">
+   
+            <CheckBox
+		        android:id="@+id/checkBox2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:checked="true" />
+                
+	        <TextView
+	            android:id="@+id/nameRecipe2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="36dp"
+	            android:layout_centerVertical="true"
+	          	android:textSize="19dp"
+	            android:textColor="#FFF"
+	            android:text="Italienische Salatsauce" />
+	    </RelativeLayout>        
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="0dp"
+   			android:paddingBottom="0dp">
+	        <TextView
+	        	android:id="@+id/prTime2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_marginTop="46dp"
+		        android:layout_marginLeft="36dp"
+		        android:textSize="15dp"
+		        android:textColor="#FFF"
+	            android:text=" - Preparing Time: 20 Min." />
+        	        
+	        <Button
+	            android:id="@+id/btnChooseRP2"
+	            android:layout_width="56dp"
+	            android:layout_height="30dp"
+	            android:layout_gravity="center"
+	            android:background="@drawable/samplebutton"
+	            android:gravity="center"
+	            android:text="Details"
+	            android:textSize="12dp"
+	            android:textColor="#FFF" 
+	    		android:layout_alignParentRight="true" 
+	    		android:layout_marginTop="40dp"
+	    		style="?android:attr/buttonStyleSmall" />
+	   </RelativeLayout>
+	</RelativeLayout>
+	
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"   
+   		android:orientation="vertical" 
+   		android:paddingTop="5dp"
+   		android:paddingBottom="5dp">
+   			
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="10dp"
+   			android:paddingBottom="10dp">
+   
+            <CheckBox
+		        android:id="@+id/checkBox3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:checked="false" />
+                
+	        <TextView
+	            android:id="@+id/nameRecipe3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="36dp"
+	            android:layout_centerVertical="true"
+	          	android:textSize="19dp"
+	            android:textColor="#FFF"
+	            android:text="Geschnetzeltes griechische Art" />
+	    </RelativeLayout>        
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="0dp"
+   			android:paddingBottom="0dp">
+	        <TextView
+	        	android:id="@+id/prTime3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_marginTop="46dp"
+		        android:layout_marginLeft="36dp"
+		        android:textSize="15dp"
+		        android:textColor="#FFF"
+	            android:text=" - Preparing Time: 35 Min." />
+        	        
+	        <Button
+	            android:id="@+id/btnChooseRP3"
+	            android:layout_width="56dp"
+	            android:layout_height="30dp"
+	            android:layout_gravity="center"
+	            android:background="@drawable/samplebutton"
+	            android:gravity="center"
+	            android:text="Details"
+	            android:textSize="12dp"
+	            android:textColor="#FFF" 
+	    		android:layout_alignParentRight="true" 
+	    		android:layout_marginTop="40dp"
+	    		style="?android:attr/buttonStyleSmall" />
+	   </RelativeLayout>
+	</RelativeLayout>
+	
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"   
+   		android:orientation="vertical" 
+   		android:paddingTop="5dp"
+   		android:paddingBottom="5dp">
+   			
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="10dp"
+   			android:paddingBottom="10dp">
+   
+            <CheckBox
+		        android:id="@+id/checkBox4"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:checked="false" />
+                
+	        <TextView
+	            android:id="@+id/nameRecipe4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="36dp"
+	            android:layout_centerVertical="true"
+	          	android:textSize="19dp"
+	            android:textColor="#FFF"
+	            android:text="Kalte Gurkensuppe" />
+	    </RelativeLayout>        
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="0dp"
+   			android:paddingBottom="0dp">
+	        <TextView
+	        	android:id="@+id/prTime4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_marginTop="46dp"
+		        android:layout_marginLeft="36dp"
+		        android:textSize="15dp"
+		        android:textColor="#FFF"
+	            android:text=" - Preparing Time: 10 Min." />
+        	        
+	        <Button
+	            android:id="@+id/btnChooseRP4"
+	            android:layout_width="56dp"
+	            android:layout_height="30dp"
+	            android:layout_gravity="center"
+	            android:background="@drawable/samplebutton"
+	            android:gravity="center"
+	            android:text="Details"
+	            android:textSize="12dp"
+	            android:textColor="#FFF" 
+	    		android:layout_alignParentRight="true" 
+	    		android:layout_marginTop="40dp"
+	    		style="?android:attr/buttonStyleSmall" />
+	   </RelativeLayout>
+	</RelativeLayout>
+	
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"   
+   		android:orientation="vertical" 
+   		android:paddingTop="5dp"
+   		android:paddingBottom="5dp">
+   			
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="10dp"
+   			android:paddingBottom="10dp">
+   
+            <CheckBox
+		        android:id="@+id/checkBox5"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:checked="true" />
+                
+	        <TextView
+	            android:id="@+id/nameRecipe5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="36dp"
+	            android:layout_centerVertical="true"
+	          	android:textSize="19dp"
+	            android:textColor="#FFF"
+	            android:text="Pizza" />
+	    </RelativeLayout>        
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"   
+   			android:orientation="horizontal" 
+   			android:paddingTop="0dp"
+   			android:paddingBottom="0dp">
+	        <TextView
+	        	android:id="@+id/prTime5"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_marginTop="46dp"
+		        android:layout_marginLeft="36dp"
+		        android:textSize="15dp"
+		        android:textColor="#FFF"
+	            android:text=" - Preparing Time: 30 Min." />
+        	        
+	        <Button
+	            android:id="@+id/btnChooseRP5"
+	            android:layout_width="56dp"
+	            android:layout_height="30dp"
+	            android:layout_gravity="center"
+	            android:background="@drawable/samplebutton"
+	            android:gravity="center"
+	            android:text="Details"
+	            android:textSize="12dp"
+	            android:textColor="#FFF" 
+	    		android:layout_alignParentRight="true" 
+	    		android:layout_marginTop="40dp"
+	    		style="?android:attr/buttonStyleSmall" />
+	   </RelativeLayout>
+	</RelativeLayout>
+	
+</LinearLayout>

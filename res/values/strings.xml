@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PathMate</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="ing_in_rp">400 g Mehl, 1 KL Salz, 2 EL Olivenöl, 0.33 Würfel, 15 g Hefe, 2.5 dl Wasser, 4 EL Tomatenpüree, 0.5 Dose gehackte Pelati, 150 g Salami oder Schinken, 250 g Mozzarella, 2 Tomaten, wenig Salz, Pfeffer, Oregano, wenig Olivenöl</string>
+
+</resources>

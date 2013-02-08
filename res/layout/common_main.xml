@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#000"
+    android:id="@+id/ingredient_main"
+    >
+    
+    <TextView 
+        android:id="@+id/TitleMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="36dp"
+        android:textColor="#FFF"
+        android:text="Common"  />
+    
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/samplebutton"
+        android:gravity="center"
+        android:text="Login in"
+        android:textColor="#FFF"
+        android:textSize="19dp" />
+    
+    <Button 
+        android:id="@+id/btnPwd"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Forget Password"
+        android:textSize="19dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:textColor="#FFF"
+        android:background="@drawable/samplebutton" />     
+        
+    <Button 
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Settings"
+        android:textSize="19dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:textColor="#FFF"
+        android:background="@drawable/samplebutton" />   
+        
+</LinearLayout>
