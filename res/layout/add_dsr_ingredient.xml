@@ -9,7 +9,7 @@
     >
 
     <TextView 
-        android:id="@+id/TitleEI"
+        android:id="@+id/TitleAIDsr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -24,11 +24,11 @@
 	    android:layout_height="wrap_content"
 	    android:padding="23dp"
 	    android:background="#000"
-	    android:id="@+id/add_name"
+	    android:id="@+id/add_dsr_name"
 	    >
     
         <TextView
-	        android:id="@+id/tvAvbName"
+	        android:id="@+id/tvAvbDsrName"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="Name" 
@@ -36,53 +36,18 @@
 	        android:textSize="20dp"/>
 
         <EditText
-        	android:id="@+id/edAvbName"
+        	android:id="@+id/edAvbDsrName"
         	android:layout_width="match_parent"
         	android:layout_height="wrap_content"
         	android:hint="i.e. Knoblauchzehe"
         	android:textColor="#FFF"
         	android:textSize="17dp"
-        	android:maxLines="1"
         	>
         	<requestFocus />
 		</EditText>
 	</LinearLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:orientation="horizontal"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:padding="23dp"
-	    android:background="#000"
-	    android:id="@+id/add_qty"
-	    >
-    
-        <TextView
-	        android:id="@+id/tvAvbQty"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Quantity" 
-	        android:textColor="#00EEEE"
-	        android:textSize="20dp"/>
 
-        <EditText
-        	android:id="@+id/edAvbQty"
-        	android:layout_width="120dp"
-        	android:layout_height="wrap_content"
-        	android:gravity="center"
-        	android:textColor="#FFF"
-        	android:textSize="17dp"
-        	android:maxLines="1">
-		</EditText>
-		
-        <TextView
-	        android:id="@+id/tvAvbUnit"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:textColor="#00EEEE"
-	        android:textSize="20dp"/>
-                
-	</LinearLayout>
 	
     <Button
         android:id="@+id/btAdd"
