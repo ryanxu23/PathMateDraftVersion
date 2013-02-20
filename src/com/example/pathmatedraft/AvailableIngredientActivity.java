@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -20,18 +21,39 @@ import android.widget.Toast;
 
 public class AvailableIngredientActivity extends Activity implements OnClickListener {
 	
+	SimpleAdapter mSPlist;
+	ListView spList;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.available_ingredients);
 		
-		ListView spList = (ListView) findViewById(R.id.avb_list);
+		spList = (ListView) findViewById(R.id.avb_list);
 		spList.setClickable(true);
 		
-		final ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
+		//final ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
 		
-		// TODO: need a for loop for generation
+		sqlAVBDB avbdb = new sqlAVBDB(this);
+		avbdb.open();
+		//int num_avb = avbdb.numAVBEntries();
+		//String nn = String.valueOf(num_avb);
+    	//Log.i("AvailableIngredientActivity",nn);
+    	//avbdb.initSomeEntries();
+
+		//int num_avb2 = avbdb.numAVBEntries();
+		//String nn2 = String.valueOf(num_avb2);
+    	//Log.i("AvailableIngredientActivity",nn2);
+    	
+    	final ArrayList<HashMap<String, String>> mylist = avbdb.getAllEntries();
+		
+		avbdb.close();
+		
+		
+		
+		// TODO: for test only
+		/*
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("ingredient", "Backpulver");
 		map.put("quantity", "3");
@@ -99,8 +121,9 @@ public class AvailableIngredientActivity extends Activity implements OnClickList
 		map.put("ingredient", "Zitronen");
 		map.put("quantity", "2");
 		mylist.add(map);
-	
-		SimpleAdapter mSPlist = new SimpleAdapter(this, mylist, R.layout.row_item,
+		*/
+		
+		mSPlist = new SimpleAdapter(this, mylist, R.layout.row_item,
 		new String[] {"ingredient", "quantity"}, new int[] {R.id.sp_item, R.id.sp_qty});
 		spList.setAdapter(mSPlist);
 			
@@ -131,8 +154,54 @@ public class AvailableIngredientActivity extends Activity implements OnClickList
 	}
 
 
-
 	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
+		
+		sqlAVBDB avbdb = new sqlAVBDB(this);
+		avbdb.open();	
+    	final ArrayList<HashMap<String, String>> mylist = avbdb.getAllEntries();
+		avbdb.close();
+		
+		mSPlist = new SimpleAdapter(this, mylist, R.layout.row_item,
+				new String[] {"ingredient", "quantity"}, new int[] {R.id.sp_item, R.id.sp_qty});
+				spList.setAdapter(mSPlist);
+				
+		//mSPlist.notifyDataSetChanged();
+		//((BaseAdapter) spList.getAdapter()).notifyDataSetChanged();
+				spList.setOnItemClickListener(new OnItemClickListener(){
+		            @Override
+		            public void onItemClick(AdapterView<?> arg0, View view, int position, long index) {
+		            	String aa = String.valueOf(position);
+		            	//Log.i("AvailableIngredientActivity",aa);
+		            	
+		            	HashMap<String, String> map_t = mylist.get(position);
+		            	String cc = map_t.get("ingredient");
+		            	String qq = map_t.get("quantity");
+		            	//Log.i("AvailableIngredientActivity",cc);
+		            	
+		            	Intent gotoEdit = new Intent(AvailableIngredientActivity.this, EditIngredientActivity.class);
+		            	gotoEdit.putExtra("item_name", cc);
+		            	gotoEdit.putExtra("item_qty", qq);
+		            	startActivity(gotoEdit);
+		                //Toast.makeText(getBaseContext(),position, Toast.LENGTH_LONG).show();
+		            }
+				});
+				
+
+				
+		Button bnAddIngredient = (Button) findViewById(R.id.btnSmallAdd);
+		bnAddIngredient.setOnClickListener(this);
+		
+	}
+
+
+
+
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

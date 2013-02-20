@@ -1,5 +1,8 @@
 package com.example.pathmatedraft;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -60,13 +63,14 @@ public class sqlAVBDB {
 		 ourHelper.close();
 	 }
 
-	public long createEntry(String name, String qty, String ctg) {
-		// TODO Auto-generated method stub
+	public void createEntry(String name, String qty, String ctg) {
+		// TODO add a return value 0 or 1, if the ingredient name already exists, cannot add, return 1 to add view
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_AVB_INGREDIENT_NAME, name);
 		cv.put(KEY_AVB_INGREDIENT_QTY, qty);
 		cv.put(KEY_AVB_INGREDIENT_CTG, ctg);
-		return ourDatabase.insert(DATABASE_AVB_TABLE, null, cv);
+		ourDatabase.insert(DATABASE_AVB_TABLE, null, cv);
+		
 	}
 
 	public String getData() {
@@ -110,20 +114,88 @@ public class sqlAVBDB {
 		return null;
 	}
 
-	public void updateEntry(long lRow, String mName, String mQty, String mCtg) throws SQLException{
+	public void updateEntry(String mName, String mQty, String mCtg) throws SQLException{
 		// TODO Auto-generated method stub
 		ContentValues cvUpdate = new ContentValues();
 		cvUpdate.put(KEY_AVB_INGREDIENT_NAME, mName);
 		cvUpdate.put(KEY_AVB_INGREDIENT_QTY, mQty);
 		cvUpdate.put(KEY_AVB_INGREDIENT_CTG, mCtg);
-		ourDatabase.update(DATABASE_AVB_TABLE, cvUpdate, KEY_ROWID + "=" + lRow, null);	
+		ourDatabase.update(DATABASE_AVB_TABLE, cvUpdate, KEY_AVB_INGREDIENT_NAME + "='" + mName + "'", null);	
 	}
 
-	public void deleteEntry(long lRow1) throws SQLException{
+	public void deleteEntry(String name) throws SQLException{
 		// TODO Auto-generated method stub
-		ourDatabase.delete(DATABASE_AVB_TABLE, KEY_ROWID + "=" + lRow1, null);
+		ourDatabase.delete(DATABASE_AVB_TABLE, KEY_AVB_INGREDIENT_NAME + "='" + name + "'", null);
 	}
 
+	public int numAVBEntries() throws SQLException{
+		String[] columns = new String[]{ KEY_ROWID, KEY_AVB_INGREDIENT_NAME, KEY_AVB_INGREDIENT_QTY, KEY_AVB_INGREDIENT_CTG};
+		Cursor c = ourDatabase.query(DATABASE_AVB_TABLE, columns, null, null, null, null, null);
+		int num = c.getCount();
+		return num;
+	}
+
+	public boolean findEntry(String name) throws SQLException{
+		
+		String[] columns = new String[]{ KEY_ROWID, KEY_AVB_INGREDIENT_NAME, KEY_AVB_INGREDIENT_QTY, KEY_AVB_INGREDIENT_CTG};
+		Cursor c = ourDatabase.query(DATABASE_AVB_TABLE, columns, KEY_AVB_INGREDIENT_NAME +  "='" + name + "'", null, null, null, null);
+		if (c != null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	
+	public void initSomeEntries() {
+		ContentValues cv = new ContentValues();
+		cv.put(KEY_AVB_INGREDIENT_NAME, "Birnen");
+		cv.put(KEY_AVB_INGREDIENT_QTY, "100g");
+		cv.put(KEY_AVB_INGREDIENT_CTG, "Obst");
+		ourDatabase.insert(DATABASE_AVB_TABLE, null, cv);
+		
+		ContentValues cv1 = new ContentValues();
+		cv1.put(KEY_AVB_INGREDIENT_NAME, "Eier");
+		cv1.put(KEY_AVB_INGREDIENT_QTY, "3");
+		cv1.put(KEY_AVB_INGREDIENT_CTG, "NA");
+		ourDatabase.insert(DATABASE_AVB_TABLE, null, cv1);
+		
+		ContentValues cv2 = new ContentValues();
+		cv2.put(KEY_AVB_INGREDIENT_NAME, "Kiwi");
+		cv2.put(KEY_AVB_INGREDIENT_QTY, "2");
+		cv2.put(KEY_AVB_INGREDIENT_CTG, "Obst");
+		ourDatabase.insert(DATABASE_AVB_TABLE, null, cv2);
+		
+		ContentValues cv3 = new ContentValues();
+		cv3.put(KEY_AVB_INGREDIENT_NAME, "Backpulver");
+		cv3.put(KEY_AVB_INGREDIENT_QTY, "5");
+		cv3.put(KEY_AVB_INGREDIENT_CTG, "Zutate");
+		ourDatabase.insert(DATABASE_AVB_TABLE, null, cv3);	
+		
+	}
+	
+	public ArrayList<HashMap<String, String>> getAllEntries(){
+		
+		final ArrayList<HashMap<String, String>> mylist_t = new ArrayList<HashMap<String, String>>();
+
+		String[] columns = new String[]{ KEY_ROWID, KEY_AVB_INGREDIENT_NAME, KEY_AVB_INGREDIENT_QTY, KEY_AVB_INGREDIENT_CTG};
+		Cursor c = ourDatabase.query(DATABASE_AVB_TABLE, columns, null, null, null, null, KEY_AVB_INGREDIENT_NAME);
+		
+		int iRow = c.getColumnIndex(KEY_ROWID);
+		int iName = c.getColumnIndex(KEY_AVB_INGREDIENT_NAME);
+		int iQty = c.getColumnIndex(KEY_AVB_INGREDIENT_QTY);
+		int iCtg = c.getColumnIndex(KEY_AVB_INGREDIENT_CTG);
+		
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("ingredient", c.getString(iName));
+			map.put("quantity", c.getString(iQty));
+			mylist_t.add(map);
+		}	
+		
+		return mylist_t;
+	}
 	
 }
 

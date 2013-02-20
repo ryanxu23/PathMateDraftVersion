@@ -20,31 +20,41 @@ public class DeleteDesiredIngredientActivity extends Activity implements OnClick
 
 	private static final int DIALOG_ALERT = 10;
 	Context context=this;
+	ListView dsrList;
+	DDRowAdapter adapt;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.delete_desired_ingredients);
 
-		ListView dsrList = (ListView) findViewById(R.id.d_dsr_list);
-		//String dsrIngredients[] = { "Bananen", "Cola", "Ice-cream", "Kuchen", "Schokolade"};
+
+		dsrList = (ListView) findViewById(R.id.d_dsr_list);	
 		
+		sqlDSRDB dsrdb = new sqlDSRDB(this);
+		dsrdb.open();
+		final DDRow[] row_data = dsrdb.getAllEntriesForDelete();
+		Log.i("DesiredIngredientActivity", "get delete entry success");
+		dsrdb.close();
+
+		
+		/*
 		final DDRow row_data[] = new DDRow[]{
 			new DDRow(R.drawable.delete, "Bananen"),
 			new DDRow(R.drawable.delete, "Cola"),
 			new DDRow(R.drawable.delete, "Ice-cream"),
 			new DDRow(R.drawable.delete, "Kuchen"),
 			new DDRow(R.drawable.delete, "Schokolade"),
-		};
-		
+		};	
+		*/
 		
 		//ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.delete_row_item, row_data);
-		DDRowAdapter adapt = new DDRowAdapter(this, R.layout.delete_row_item, row_data);
+		adapt = new DDRowAdapter(this, R.layout.delete_row_item, row_data);
 		dsrList.setAdapter(adapt);
 		
 		dsrList.setOnItemClickListener(new OnItemClickListener(){
             @Override
-            public void onItemClick(AdapterView<?> arg0, View view, int position, long index) {
+            public void onItemClick(AdapterView<?> arg0, View view, final int position, long index) {
             	String bb = String.valueOf(position);
             	Log.i("DeleteDesiredIngredientActivity",bb);       
             	
@@ -53,8 +63,35 @@ public class DeleteDesiredIngredientActivity extends Activity implements OnClick
             	builder.setMessage("Are you sure you want to delete " + row_data[position].title + "?")  
             	       .setCancelable(false)  
             	       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {  
-            	           public void onClick(DialogInterface dialog, int id) {  
-            	        	   //TODO delete entry from db here
+            	           public void onClick(DialogInterface dialog, int id) { 
+            	        	   	// delete entry
+            	        	   	try {
+	            	       			sqlDSRDB dsrdb = new sqlDSRDB(DeleteDesiredIngredientActivity.this);
+	            	       			dsrdb.open();
+	            	       			
+	            	       			dsrdb.deleteEntry(row_data[position].title);
+	            	       			Log.i("DesiredIngredientActivity", "get entry success");
+	            	       			dsrdb.close();
+	            	       		} catch (Exception e) {
+	            	       			String error = e.toString();
+	            	       			Log.i("DesiredIngredientActivity", error);
+	            	       		}
+            	        	   	
+            	        	   	// refresh view
+            	        	   	dsrList = (ListView) findViewById(R.id.d_dsr_list);	
+            	        		
+            	        		sqlDSRDB dsrdb = new sqlDSRDB(DeleteDesiredIngredientActivity.this);
+            	        		dsrdb.open();
+            	        		final DDRow[] row_data = dsrdb.getAllEntriesForDelete();
+            	        		Log.i("DesiredIngredientActivity", "get delete entry success");
+            	        		dsrdb.close();
+            	        		adapt = new DDRowAdapter(DeleteDesiredIngredientActivity.this, R.layout.delete_row_item, row_data);
+            	        		dsrList.setAdapter(adapt);
+            	        	   	
+            	        		Button bnAddIngredient = (Button) findViewById(R.id.btnSmallDone);
+            	        		bnAddIngredient.setOnClickListener(DeleteDesiredIngredientActivity.this);
+            	        		
+            	        	   	
             	                dialog.cancel(); 
             	           }  
             	       })  
